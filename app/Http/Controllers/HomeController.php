@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\ReviewsModel;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -16,8 +17,9 @@ class HomeController extends Controller
             if ($usertype == 'user') {
                 return view('dashboard');
             } else if ($usertype == 'admin') {
-                // если админ возвращает view по пути admin/adminhome.blade.php
+
                 return view('admin.adminhome');
+
             } else {
                 return redirect()->back();
             }

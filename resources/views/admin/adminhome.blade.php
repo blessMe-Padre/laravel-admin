@@ -5,25 +5,33 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged as Admin!") }}
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-4">
-                    <div class="alert alert-success mt-6">
-                        <a class="link-success" href="/home/reviews">Редактировать отзывы</a>
-                    </div>
-                </div>
-                <div class="col-8">col-4</div>
-            </div>
-
+    <div class="container py-6">
+        <div class="alert alert-info" role="alert">
+            {{ __("You're logged as Admin!") }}
         </div>
     </div>
+
+    <div class="admin-wrapper">
+
+        <!-- LEFT -->
+        <div class="admin-wrapper-left">
+            <button class="menu-item">Отзывы</button>
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+            @foreach ($reviews as $review)
+                <div class="border p-3 m-3">
+                    <h2 class="mb-2">{{ $review->name }}</h2>
+                    <p class="mb-2">{{ $review->email }}</p>
+                    <p class="mb-2">{{ $review->massage }}</p>
+                    <a href="{{ route('review-edit', $review->id) }}" class="btn btn-success">Редактировать</a>
+                    <a href="{{ route('home-review-delete', $review->id) }}" class="btn btn-danger">Удалить</a>
+                </div>
+            @endforeach
+        </div>
+        
+    </div>    
+    
 
 </x-app-layout>

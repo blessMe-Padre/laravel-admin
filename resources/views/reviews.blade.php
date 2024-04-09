@@ -54,6 +54,7 @@
     <h2>Все отзывы</h2>
     <br>
     <ul class="grid grid-cols-2 gap-5">
+       
         @foreach ($reviews as $el)
             <div class="col alert alert-warning m-0">
                 <h3 class="font-bold mb-3 text-lg">{{ $el->name }}</h3>

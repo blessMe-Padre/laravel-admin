@@ -2,7 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.admin-wrapper {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 20px;
+    color: aliceblue;
+    background-color: #212529;
 
-.title {
-    color: blueviolet;
+    border-top: 1px solid #f2f2f2;
+    width: 100%;
+}
+
+.admin-wrapper-left {
+    border-right: 1px solid #f2f2f2;
+}
+
+.menu-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
 }
