@@ -19,7 +19,7 @@ use App\Http\Controllers\AdminReviewsController;
 */
 
 // Фасады роутов основных страниц
-Route::get('/', [MainController::class, 'home'])->name('main');
+Route::get('/', [MainController::class, 'welcome'])->name('main');
 Route::get('/about', [MainController::class, 'about'])->name('about');
 
 
@@ -34,10 +34,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', [HomeController::class, 'index'])
-    ->middleware(['auth', 'admin'])
-    ->name('home');
-
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'admin'])->name('home');
 
 // Фасады роутов для работы с ОТЗЫВАМИ 
 Route::get('/home', [AdminReviewsController::class, 'show_all_reviews'])->name('home-reviews');
